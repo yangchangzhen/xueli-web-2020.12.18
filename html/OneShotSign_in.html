@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ONESHOT用户注册</title>
+</head>
+<style type="text/css">
+	* {
+		margin: 0px;
+		padding: 0px;
+	}
+	body {
+		background: url('../images/others/sign_in1.jpg') no-repeat;
+		background-size: cover;
+	}
+	#MessagesBoxTop {
+		background-color: #D1DDDB;
+		width: 360px;
+		height: 360px;
+		margin: 0 auto;
+		/*position: absolute;*/
+		padding-top: 70px;
+		border-radius: 15px;
+		box-shadow:0px 2px 5px 0px rgba(118,118,118,0.5);
+	}
+	#MessagesBox {
+		position: relative;
+		top: 100px;
+		left: 200px;
+		/*border: 1px red solid;*/
+		background-color: white;
+		padding-top: 25px;
+		width: 398px;
+		height: 455px;
+		border-radius: 15px;
+		box-shadow:0px 2px 5px 0px rgba(118,118,118,0.5);
+		background-color: #85B8CB;
+
+
+
+
+	}
+	.box {
+		width: 310px;
+		height:60px;
+		border:1px grey solid;
+		margin: 0 auto;
+		border-radius: 15px;
+	}
+	.TipsBox {
+		width: 310px;
+		height:40px;
+		/*border:1px red solid;*/
+		line-height: 40px;
+		font-size: 14px;
+		color: grey;
+		padding-left: 26px;
+	}
+
+	#RegisterButton {
+		width: 312px;
+		height:60px;
+		color: white;
+		background-color: #1D6A96;
+		text-align: center;
+		line-height:60px;
+		border: red;
+		font-size: 18px;
+
+
+	}
+	.HeadBox {
+		color: grey;
+		width: 90px;
+		height:60px;
+		/*border: 1px red solid;*/
+		line-height: 60px;
+		float: left;
+		padding-left:10px;
+		display: block;
+	}
+	.inputBox {
+		width:210px;
+		height:60px;
+		border: 0px;
+		line-height: 60px;
+		float: left;
+		outline:none;
+		font-size:20px;
+	}
+	#successBox {
+		width:310px;
+		height: 240px;
+		color:red;
+		/*border: 1px red solid;*/
+		top: 190px;
+		left:580px;
+		padding-top: 30px;
+		position: absolute;
+	}
+	.successtips {
+
+		float: left;
+		height: 67px;
+		width:260px;
+		color: white;
+		/*border: 1px red solid;*/
+		padding-left: 50px;	
+		padding-bottom: 15px;
+		font-size: 20px;
+		font-family: '微软雅黑';
+	}
+	#UserNameBox {
+		background-color: #D1DDDB;
+		border-radius: 15px;
+	}
+	#PassWordBox {
+		background-color: #D1DDDB;
+		border-radius: 15px;
+	}
+	#RegisterButton {
+		border-radius: 15px;
+		outline: none;
+	}
+
+</style>
+<body>
+	<div id="MessagesBox">
+		<div id="MessagesBoxTop">
+			<div class="box">
+				<div class="HeadBox">用 户 名</div>
+				<form>
+					<input id="UserNameBox" class="inputBox" type="text" name="UserName" value="" onfocus="f1()" onblur="f2()" />
+				</form>
+			</div>
+				
+			<div id="TipsBox1" class="TipsBox"></div>
+
+			<div class="box">
+				<div class="HeadBox">设置密码</div>
+				<form>
+					<input id="PassWordBox" class="inputBox" type="password" name="PassWord" onfocus="f3()" onblur="f4()"/>
+				</form>
+			</div>
+
+			<div id="TipsBox2" class="TipsBox"> </div>
+
+			<div class="box">
+				<form>
+					<input id="RegisterButton" type="button" value="立即注册" name="register" onclick="ClickRegister()" />
+						
+				</form>
+			</div>
+		</div>
+
+	</div> 
+	<div id="successBox"></div>
+
+	<script type="text/javascript">
+		function f1() {
+			document.getElementById('TipsBox1').innerHTML = "<p id='tips1'>支持中文数字</p>";
+
+		}
+		function f2() {
+			document.getElementById('tips1').innerHTML = "";
+			if(document.getElementById('UserNameBox').value == "") {
+				document.getElementById('TipsBox1').innerHTML = "<p>用户名不能为空</p>";
+
+			}
+
+		}
+		function f3() {
+			document.getElementById('TipsBox2').innerHTML = "<p id='tips2'>建议使用两种字符组合</p>";
+
+		}
+		function f4() {
+			document.getElementById('tips2').innerHTML = "";
+			if(document.getElementById('PassWordBox').value == "") {
+				document.getElementById('TipsBox2').innerHTML = "<p>密码不能为空</p>";
+
+			}
+		}
+		function ClickRegister() {
+			document.getElementById('successBox').innerHTML = "<div class='successtips'><P>注册成功！</P></div><div class='successtips'>用户名：<P id='nametext'></P></div><div class='successtips'>密码：<P id='passwordtext'></P></div>";
+			document.getElementById('nametext').innerHTML = document.getElementById('UserNameBox').value;
+			document.getElementById('passwordtext').innerHTML = document.getElementById('PassWordBox').value;
+			document.getElementById('nametext').style.display = "inline-block";
+			document.getElementById('passwordtext').style.display = "inline-block";
+		}
+	</script>
+</body>
+</html>
